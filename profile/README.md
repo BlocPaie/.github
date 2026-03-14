@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./logo.png" alt="BlocPaie" width="140" />
+
 # BlocPaie
 
 **Confidential on-chain payroll for the modern workforce.**
