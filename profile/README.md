@@ -58,6 +58,14 @@ Company                                    Contractor
 
 ---
 
+## Architecture Note
+
+The backend stores plaintext invoice metadata — amounts, contractor names, company details, and transaction history — so the dashboard can display information instantly without requiring the user to decrypt on-chain data on every page load. Decryption via Zama's KMS involves on-chain ACL grants and KMS round-trips; caching the results off-chain keeps the UX responsive.
+
+**The on-chain contracts never see plaintext.** All sensitive values (salary amounts, payee addresses, cheque statuses) are FHE-encrypted client-side in the browser before any transaction is submitted. The backend is a UX layer — the vault contracts are the source of truth for all payments.
+
+---
+
 ## Repositories
 
 | Repo | Description |
