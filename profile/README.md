@@ -107,7 +107,7 @@ Company                                    Contractor
 
 | Limitation | Detail | Resolved when |
 |------------|--------|---------------|
-| **Ephemeral decrypt keypair** | Zama's KMS validates `userDecrypt` requests via secp256k1 ECDSA signatures. Porto wallets use WebAuthn P-256 passkeys, which the KMS cannot verify directly. As a workaround, BlocPaie generates a short-lived secp256k1 keypair (`decryptViewer`) in the browser on every decrypt, grants it ACL access on-chain, uses it to sign the KMS request, then discards it. This costs an extra on-chain transaction and briefly materialises a secp256k1 private key in browser memory. | Zama KMS adds EIP-1271 support — allowing the KMS to call `isValidSignature` on the Porto smart account and authorise decryption via the user's passkey directly, with no ephemeral key needed. |
+| **Ephemeral decrypt keypair** | Zama's KMS validates `userDecrypt` requests via secp256k1 ECDSA signatures. Porto wallets use WebAuthn P-256 passkeys, which the KMS cannot verify directly. As a workaround, BlocPaie generates a short-lived secp256k1 keypair (`decryptViewer`) in the browser on every decrypt, grants it ACL access on-chain, uses it to sign the KMS request, then discards it. This costs an extra on-chain transaction and briefly materialises a secp256k1 private key in browser memory. | Zama KMS adds EIP-1271 support — allowing the KMS to call `isValidSignature` on any smart contract wallet (Porto, Safe, Coinbase Smart Wallet, etc.) and authorise decryption via the wallet's own signature scheme directly, with no ephemeral key needed. |
 
 ### Privacy & Cryptography
 
