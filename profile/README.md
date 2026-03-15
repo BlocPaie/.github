@@ -101,7 +101,6 @@ Company                                    Contractor
 |------|----------------------|----------------------|
 | **Event Indexer** | The backend stores transactions only when the frontend explicitly POSTs after a confirmed tx. If the browser closes mid-flow or a tx lands without a frontend session, it's never recorded. | A background service listening to `ChequeRegistered`, `ChequeExecuted`, `FundsDeposited` etc. would keep the DB in sync regardless of client state — making the transaction history fully reliable and enabling real-time dashboard updates. |
 | **Merchant route sponsorship filter** | `sponsor()` currently returns `true` for every incoming request — anyone who hits the endpoint can get arbitrary transactions sponsored. | Allowlist the vault factory + vault + cUSDC contract addresses so only BlocPaie contract calls are sponsored. Eliminates gas-drain abuse. |
-| **Mainnet deployment** | Blocked on Zama fhEVM coprocessor mainnet availability. | Production-grade confidential payroll on Ethereum mainnet. |
 
 ### Known Limitations
 
