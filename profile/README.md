@@ -66,6 +66,19 @@ The backend stores plaintext invoice metadata — amounts, contractor names, com
 
 ---
 
+## Blockchain as a Verifiability Layer
+
+BlocPaie treats the blockchain not as a ledger of readable transactions, but as an **immutable verifiability layer**. Every salary registration, cheque execution, and cancellation is recorded on-chain with a cryptographic commitment — permanently timestamped and tamper-proof — without ever exposing the underlying amounts or identities.
+
+This has meaningful implications for corporate audits and regulatory compliance. An auditor can independently verify:
+- That a payment was made, and when
+- That the on-chain commitment matches the invoice hash held by the company
+- That no cheque was executed without prior registration
+
+All of this is provable without decrypting a single salary figure. Zama's FHE ensures the sensitive details remain confidential while the blockchain guarantees the integrity of the record. As regulatory frameworks around blockchain-based payroll mature, this architecture positions BlocPaie to satisfy compliance requirements without compromising employee privacy.
+
+---
+
 ## Repositories
 
 | Repo | Description |
