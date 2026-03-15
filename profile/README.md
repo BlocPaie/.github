@@ -87,9 +87,9 @@ Company                                    Contractor
 
 | Contract | Address |
 |----------|---------|
-| VaultFactory | [`0xfB6760E4aa9eCe674Afc05Ec8c3F5a12384FEF9C`](https://sepolia.etherscan.io/address/0xfB6760E4aa9eCe674Afc05Ec8c3F5a12384FEF9C) |
-| MockUSDC | [`0xf1DfBFD875a5E4dAb6a041c4da27f8F0b1b5217f`](https://sepolia.etherscan.io/address/0xf1DfBFD875a5E4dAb6a041c4da27f8F0b1b5217f) |
-| ConfidentialUSDC (cUSDC) | [`0x83662eb8350e3Bf66666Bfbc673185379E11Af56`](https://sepolia.etherscan.io/address/0x83662eb8350e3Bf66666Bfbc673185379E11Af56) |
+| VaultFactory | [`0x619B322e1D722F86294B4d7dF92B42c89B3456aB`](https://sepolia.etherscan.io/address/0x619B322e1D722F86294B4d7dF92B42c89B3456aB) |
+| MockUSDC | [`0xe89D1caF047aEc9F7f0F3623F799F3bc321fFc9c`](https://sepolia.etherscan.io/address/0xe89D1caF047aEc9F7f0F3623F799F3bc321fFc9c) |
+| ConfidentialUSDC (cUSDC) | [`0x8a486Fa9c123ADc482d383f9fe8A48adaD7fBc17`](https://sepolia.etherscan.io/address/0x8a486Fa9c123ADc482d383f9fe8A48adaD7fBc17) |
 
 ---
 
@@ -101,6 +101,7 @@ Company                                    Contractor
 |------|----------------------|----------------------|
 | **Event Indexer** | The backend stores transactions only when the frontend explicitly POSTs after a confirmed tx. If the browser closes mid-flow or a tx lands without a frontend session, it's never recorded. | A background service listening to `ChequeRegistered`, `ChequeExecuted`, `FundsDeposited` etc. would keep the DB in sync regardless of client state — making the transaction history fully reliable and enabling real-time dashboard updates. |
 | **Merchant route sponsorship filter** | `sponsor()` currently returns `true` for every incoming request — anyone who hits the endpoint can get arbitrary transactions sponsored. | Allowlist the vault factory + vault + cUSDC contract addresses so only BlocPaie contract calls are sponsored. Eliminates gas-drain abuse. |
+| **Mainnet deployment** | Blocked on Zama fhEVM coprocessor mainnet availability. | Production-grade confidential payroll on Ethereum mainnet. |
 
 ### Privacy & Cryptography
 
